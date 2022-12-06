@@ -17,7 +17,7 @@ class FirstTableViewCell: UITableViewCell {
     var count : Int = 12
     
     var dummyStr : [String] = ["str1", "str2", "str3"]
-    var newDummyStr : [String] = ["Hi", "Hello", "Hola"]
+    var newDummyStr : [String] = ["Hi", "Hello", "Hola","I'm","Thaw","De","Zin"]
     var currentIndex : Int = -1
     
     override func awakeFromNib() {
@@ -50,7 +50,14 @@ class FirstTableViewCell: UITableViewCell {
         if let tableView = self.superview as? UITableView{
             if let indexPath = tableView.indexPath(for: self){
                 print("Indexpath acquired.")
-                Helper.seeMoreList.append(indexPath.row)
+                //မရှိသေးမှ ထည့်
+                if Helper.seeMoreList.contains(indexPath.row) {
+                    if let index = Helper.seeMoreList.firstIndex(of: indexPath.row) {
+                        Helper.seeMoreList.remove(at: index)
+                    }
+                } else {
+                    Helper.seeMoreList.append(indexPath.row)
+                }
                 Helper.currentIndex = indexPath.row
                 DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
                     
@@ -110,17 +117,15 @@ extension FirstTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SecondTableViewCell", for:  indexPath) as! SecondTableViewCell
-        //cell.innerLbl.text = dummyStr[indexPath.row]
-        
+  
         if Helper.seeMoreList.contains(Helper.currentIndex) {
             cell.innerLbl.text = newDummyStr[indexPath.row]
          
         } else {
             cell.innerLbl.text = dummyStr[indexPath.row]
         }
-//        cell.setNeedsLayout()
-//        cell.layoutIfNeeded()
         NotificationCenter.default.post(name: Notification.Name(rawValue: "ut"), object: nil)
+        
         return cell
     }
     
