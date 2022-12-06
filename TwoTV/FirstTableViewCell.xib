@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="305" id="KGk-i7-Jjw" customClass="FirstTableViewCell" customModule="TwoTV" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="443" height="305"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="443" height="305"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="meW-64-j2b">
+                        <rect key="frame" x="0.0" y="170" width="443" height="100"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="jok-Tf-mBX"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="dataSource" destination="KGk-i7-Jjw" id="8LR-ld-Ke9"/>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="GYd-AZ-RqS"/>
+                        </connections>
+                    </tableView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTI-IH-1Du">
+                        <rect key="frame" x="0.0" y="0.0" width="443" height="170"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCF-rW-SHT">
+                        <rect key="frame" x="0.0" y="270" width="443" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="OJz-z9-RvT"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        <connections>
+                            <action selector="btnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="T5t-tS-MIZ"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="meW-64-j2b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6ez-Bs-e2a"/>
+                    <constraint firstItem="WTI-IH-1Du" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DQI-SG-3d2"/>
+                    <constraint firstAttribute="trailing" secondItem="meW-64-j2b" secondAttribute="trailing" id="Glt-Vl-KvQ"/>
+                    <constraint firstItem="WTI-IH-1Du" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ogh-c2-zeh"/>
+                    <constraint firstAttribute="trailing" secondItem="BCF-rW-SHT" secondAttribute="trailing" id="TtA-Ge-huC"/>
+                    <constraint firstItem="BCF-rW-SHT" firstAttribute="top" secondItem="meW-64-j2b" secondAttribute="bottom" id="iBt-Rb-j9w"/>
+                    <constraint firstAttribute="trailing" secondItem="WTI-IH-1Du" secondAttribute="trailing" id="iuy-fx-HP0"/>
+                    <constraint firstAttribute="bottom" secondItem="BCF-rW-SHT" secondAttribute="bottom" id="l0k-P9-mRU"/>
+                    <constraint firstItem="BCF-rW-SHT" firstAttribute="top" secondItem="meW-64-j2b" secondAttribute="bottom" id="rbL-AR-1kz"/>
+                    <constraint firstItem="BCF-rW-SHT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="teB-s7-5PQ"/>
+                    <constraint firstItem="meW-64-j2b" firstAttribute="top" secondItem="WTI-IH-1Du" secondAttribute="bottom" id="ub4-pl-nTt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="firstLbl" destination="WTI-IH-1Du" id="XaH-Ie-r8e"/>
+                <outlet property="heightSecondTV" destination="jok-Tf-mBX" id="dSK-pk-wmj"/>
+                <outlet property="secondTV" destination="meW-64-j2b" id="TMk-ih-AqL"/>
+            </connections>
+            <point key="canvasLocation" x="72.51908396946564" y="80.633802816901408"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
